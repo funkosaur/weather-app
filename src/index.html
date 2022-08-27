@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" name="description" content="Check the weather in any location"/>
-   <title>Weather App</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      charset="utf-8"
+      name="description"
+      content="Check the weather in any location"
+    />
+    <title>Weather App</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-   <script src="./index.bundle.js"></script>
+    <div class="header">
+      <div class="searchBarContainer">
+        <input
+          type="search"
+          id="searchBar"
+          placeholder="Search for location..."
+          data-search
+        />
+        <div class="buttonDiv">
+          <button type="button" class="searchButton">Search</button>
+        </div>
+      </div>
+      <div class="currentTemperatureDiv">
+        <div class="currentTemperatureDiv2">
+          <div class="highAndLow">
+            <div id="highTemp">High:</div>
+            <div id="lowTemp">Low:</div>
+          </div>
+          <div class="currentTemperature">19</div>
+          <div class="feelsLikeDiv">Feels like: 19</div>
+        </div>
+      </div>
+
+      <div class="currentLocation">London, UK</div>
+      <div class="currentWeather">
+        <div class="weatherIconDiv">
+          <img class="weatherIcon" />
+        </div>
+        <div class="weatherExplanation">Clear Skies</div>
+      </div>
+      <div class="currentHourlyWeather">
+        <div class="weatherIcon">
+          <div class="hourlyTemp">26</div>
+          <div class="hourlyIcon"></div>
+          <div class="hourlyPrecip">3</div>
+          <div class="hourlyHour">16:00</div>
+        </div>
+        <div class="weatherIcon">
+          <div class="hourlyTemp">26</div>
+          <div class="hourlyIcon"></div>
+          <div class="hourlyPrecip">3</div>
+          <div class="hourlyHour">16:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+    <script src="./index.bundle.js"></script>
   </body>
 </html>
