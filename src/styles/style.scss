@@ -51,12 +51,18 @@ body {
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-columns: 0.1fr 1fr 0.1fr;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 2.5fr 1fr;
   font-family: Roboto;
   overflow-y: scroll;
   scrollbar-gutter: auto;
   @include scrollBar();
+}
+
+.headerDiv {
+  grid-column: 1/4;
+  grid-row: 1/2;
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 0.1fr;
 }
 
 .header {
@@ -69,7 +75,6 @@ body {
   .searchBarContainer {
     grid-column: 2/3;
     grid-row: 1/2;
-    background-color: blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,6 +85,7 @@ body {
       border: none;
       outline: none;
       font-size: 16px;
+      text-indent: 10px;
     }
     .buttonDiv {
       height: 40%;
@@ -95,15 +101,20 @@ body {
   .currentTemperatureDiv {
     grid-column: 1/2;
     grid-row: 2/3;
-    background-color: rgb(114, 14, 14);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     .currentTemperatureDiv2 {
-      height: 60%;
-      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80%;
+      width: 200px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.644);
 
       .highAndLow {
         display: flex;
@@ -136,35 +147,56 @@ body {
   .currentLocation {
     grid-column: 2/3;
     grid-row: 2/3;
-    background-color: aqua;
     font-family: RobotoBlack;
     font-size: 36px;
     @include flexCenter();
+    .locationContainer {
+      @include flexCenter();
+      background-color: rgba(255, 255, 255, 0.644);
+      border-radius: 8px;
+      width: 70%;
+      height: 130px;
+      flex-wrap: wrap;
+      padding: 10px;
+      text-align: center;
+    }
   }
 
   .currentWeather {
     grid-column: 3/4;
     grid-row: 2/3;
-    background-color: yellow;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .weatherIcon {
-      width: 100%;
-      height: 85%;
-    }
-    .weatherExplanation {
-      width: 100%;
-      height: 15%;
-      @include flexCenter();
+    .containerDiv {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80%;
+      width: 200px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.644);
+      .weatherIconDiv {
+        width: 100%;
+        height: 85%;
+        @include flexCenter();
+        .weatherIcon {
+          height: 85%;
+        }
+      }
+      .weatherExplanation {
+        width: 100%;
+        height: 15%;
+        @include flexCenter();
+      }
     }
   }
 
   .currentHourlyWeather {
     grid-column: 1/4;
     grid-row: 3/4;
-    background-color: orange;
     overflow-x: scroll;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
@@ -172,14 +204,19 @@ body {
     border-bottom-right-radius: 12px;
     max-width: 200vw;
     display: flex;
+    padding-top: 20px;
     .weatherIcon {
-      height: 95%;
-      width: 125px;
+      height: 90%;
+      width: 110px;
       @include flexCenter();
+      justify-content: space-around;
       flex-direction: column;
       margin-left: 30px;
       margin-right: 30px;
       font-size: 20px;
+      background-color: rgba(255, 255, 255, 0.644);
+      margin-top: 10px;
+      border-radius: 8px;
     }
   }
 }
@@ -188,4 +225,16 @@ body {
   grid-column: 1/4;
   grid-row: 2/3;
   background-color: rgb(49, 49, 49);
+  color: white;
+  .dailyTempTitle {
+    width: 100%;
+    height: 30%;
+    @include flexCenter();
+    background-color: rgba(17, 16, 16, 0.938);
+    border-bottom: 2px solid black;
+  }
+  .dailyTemperatureDiv {
+    height: 70%;
+    background-color: black;
+  }
 }
