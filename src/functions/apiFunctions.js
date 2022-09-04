@@ -11,12 +11,20 @@ async function getLocation(cityName) {
   }
 }
 
+const tempCheckbox = document.querySelector('#tempCheckbox');
+
 async function getWeatherForLocation(cityName) {
   try {
     const locationData = await getLocation(`${cityName}`);
     // Extracting latitude and longitude from location data to retrieve the weather
     const { lat, lon } = locationData;
-    const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=24c481fc9b73c68737718db2c14b1211`;
+    let unitType;
+    if (tempCheckbox.checked) {
+      unitType = 'imperial';
+    } else {
+      unitType = 'metric';
+    }
+    const URL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=${unitType}&appid=24c481fc9b73c68737718db2c14b1211`;
     const response = await fetch(URL);
     const weatherData = await response.json();
     // Assigning the name and country to the object because they are not included in the response
