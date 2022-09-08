@@ -11,7 +11,25 @@ function changeCityTemperature(weatherData) {
 
   console.log(weatherData);
 
-  mainTemperature.textContent = `${weatherData.current.temp / 1}°`;
+  mainTemperature.textContent = `${Math.floor(weatherData.current.temp)}°`;
+  highTemperature.textContent = `High: ${Math.floor(
+    weatherData.daily[0].temp.max,
+  )}°`;
+  lowTemperature.textContent = `Low: ${Math.floor(
+    weatherData.daily[0].temp.min,
+  )}°`;
+  feelsLikeTemperature.textContent = `Feels Like: ${Math.floor(
+    weatherData.current.feels_like,
+  )}°`;
+}
+
+function changeCityName(weatherData) {
+  const cityName = document.querySelector('#cityName');
+  cityName.textContent = `${weatherData.name}, ${weatherData.country}`;
+}
+
+function changeWeatherIcon(weatherData) {
+  const weatherIcon = document.querySelector('.weatherIcon');
 }
 
 searchButton.addEventListener('click', () => {
@@ -20,6 +38,7 @@ searchButton.addEventListener('click', () => {
   }
   getWeatherForLocation(searchBar.value).then((currentWeatherData) => {
     changeCityTemperature(currentWeatherData);
+    changeCityName(currentWeatherData);
   });
   searchBar.value = '';
 });
