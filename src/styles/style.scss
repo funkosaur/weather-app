@@ -266,6 +266,7 @@ body {
     grid-column: 1/4;
     grid-row: 3/4;
     overflow-x: scroll;
+    white-space: nowrap;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     border-bottom-left-radius: 12px;
@@ -273,18 +274,23 @@ body {
     max-width: 200vw;
     display: flex;
     padding-top: 20px;
-    .weatherIcon {
+    .hourlyCards {
+      font-family: Roboto;
       height: 90%;
-      width: 110px;
+      min-width: 90px;
       @include flexCenter();
       justify-content: space-around;
       flex-direction: column;
-      margin-left: 30px;
-      margin-right: 30px;
+      margin-left: 20px;
+      margin-right: 20px;
       font-size: 20px;
       background-color: rgba(255, 255, 255, 0.644);
       margin-top: 10px;
       border-radius: 8px;
+      .hourlyIcon {
+        width: 60px;
+        height: 60px;
+      }
     }
   }
 }

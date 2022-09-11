@@ -23,10 +23,21 @@ function changeCityName(weatherData) {
   cityName.textContent = `${weatherData.name}, ${weatherData.country}`;
 }
 
+function capitalizeEachWordLetter(wordString) {
+  return wordString
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+    .join(' ');
+}
+
 function changeWeatherIcon(weatherData) {
   const weatherIcon = document.querySelector('.weatherIcon');
-  console.log(weatherData.current.weather[0].icon);
+  const weatherExplanation = document.querySelector('.weatherExplanation');
   weatherIcon.src = `https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`;
+  const capitalizedWeatherExplanation = capitalizeEachWordLetter(
+    weatherData.current.weather[0].description,
+  );
+  weatherExplanation.textContent = capitalizedWeatherExplanation;
 }
 
 export { changeCityTemperature, changeCityName, changeWeatherIcon };
