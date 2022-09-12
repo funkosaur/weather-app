@@ -1,6 +1,6 @@
 import './styles/style.scss';
 import imageDS from './assets/icons/02d.png';
-import brokenClouds from './assets/images/clear-sky-day.jpg';
+import brokenClouds from './assets/images/scattered-clouds-night.jpg';
 import './functions/eventListeners';
 
 const header = document.querySelector('.headerDiv');

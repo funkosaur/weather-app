@@ -8,7 +8,7 @@ function createHourlyCards(hourlyWeatherData) {
 
   const hourlyTemp = document.createElement('div');
   hourlyTemp.classList.add('hourlyTemp');
-  hourlyTemp.textContent = Math.floor(hourlyWeatherData.temp);
+  hourlyTemp.textContent = `${Math.floor(hourlyWeatherData.temp)}°`;
   hourlyCards.appendChild(hourlyTemp);
 
   const hourlyIcon = document.createElement('img');
@@ -18,8 +18,17 @@ function createHourlyCards(hourlyWeatherData) {
 
   const hourlyPercip = document.createElement('div');
   hourlyPercip.classList.add('hourlyPercip');
-  hourlyPercip.textContent = `${Math.floor(hourlyWeatherData.pop * 100)}%`;
   hourlyCards.appendChild(hourlyPercip);
+
+  const hourlyPercipSpan = document.createElement('span');
+  hourlyPercipSpan.textContent = 'Percip:';
+  hourlyPercip.appendChild(hourlyPercipSpan);
+
+  const hourlyPercipSpanPercent = document.createElement('span');
+  hourlyPercipSpanPercent.textContent = `${Math.floor(
+    hourlyWeatherData.pop * 100,
+  )}%`;
+  hourlyPercip.appendChild(hourlyPercipSpanPercent);
 
   const hourlyHour = document.createElement('div');
   hourlyHour.classList.add('hourlyHour');
