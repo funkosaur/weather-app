@@ -6,6 +6,11 @@ function createDailyCards(dailyWeatherData) {
   dailyCards.classList.add('dailyCards');
   dailyTemperatureDiv.appendChild(dailyCards);
 
-  const dailyTitle = document.createElement('div');
-  dailyTitle.classList.add('dailyTitle');
+  const dailyForecast = document.createElement('div');
+  dailyForecast.classList.add('dailyTitle');
+  dailyCards.appendChild(dailyForecast);
+
+  const dailyDetails = document.createElement('div');
+  dailyDetails.classList.add('dailyDetails');
+  dailyCards.appendChild(dailyDetails);
 }
