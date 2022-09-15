@@ -6,10 +6,12 @@ import {
 } from './changeMainWeatherFunctions';
 import deleteItemsInDiv from './utility/deleteItemsInDiv';
 import createHourlyCards from './createHourlyCards';
+import createDailyCards from './createDailyCards';
 
 const searchBar = document.querySelector('#searchBar');
 const searchButton = document.querySelector('.searchButton');
 const currentHourlyWeather = document.querySelector('.currentHourlyWeather');
+const dailyTemperatureDiv = document.querySelector('.dailyTemperatureDiv');
 
 searchButton.addEventListener('click', () => {
   if (searchBar.value === '') {
@@ -22,6 +24,10 @@ searchButton.addEventListener('click', () => {
     deleteItemsInDiv(currentHourlyWeather);
     for (let i = 0; i < 24; i += 1) {
       createHourlyCards(currentWeatherData.hourly[i]);
+    }
+    deleteItemsInDiv(dailyTemperatureDiv);
+    for (let i = 1; i < 8; i += 1) {
+      createDailyCards(currentWeatherData.daily[i]);
     }
   });
   searchBar.value = '';

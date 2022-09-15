@@ -36,5 +36,8 @@
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all"
+  },
+  "dependencies": {
+    "degrees-to-direction": "^1.1.1"
   }
 }
