@@ -49,7 +49,6 @@ $lightGray: rgb(139, 139, 139);
 
 body {
   width: 100%;
-
   font-family: Roboto;
   overflow-y: scroll;
   scrollbar-gutter: auto;
@@ -322,10 +321,10 @@ body {
   grid-row: 2/3;
   background-color: rgb(49, 49, 49);
   color: white;
-  height: 45vh;
+  height: 70%;
   .dailyTempTitle {
     width: 100%;
-    height: 15%;
+    height: 50px;
     @include flexCenter();
     background-color: rgba(17, 16, 16, 0.938);
     border-bottom: 2px solid black;
@@ -336,18 +335,26 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     .dailyCards {
       background-color: rgba(17, 16, 16);
-      width: 250px;
+      width: 270px;
       @include flexCenter();
       flex-direction: column;
-      padding: 10px;
+      padding-top: 5px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 15px;
+      margin: 10px;
       .dailyTitle {
         @include flexCenter();
         justify-content: space-between;
+        width: 100%;
         .dayAndForecast {
           @include flexCenter();
           flex-direction: column;
+          align-items:flex-start;
+          width: 100%;
         }
         .weatherIcon {
           width: 60px;
@@ -364,7 +371,12 @@ body {
       .dailyDetails {
         padding-left: 5px;
         padding-right: 5px;
-        .precipitationDiv, .windDiv, .humidityDiv, .uvIndexDiv, .sunriseSunsetDiv {
+        width: 100%;
+        height: 95px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .precipitationDiv, .windDiv, .humidityDiv, .uvIndexDiv, .sunriseSunset {
           @include flexCenter();
           justify-content: space-between;
         }

@@ -13,7 +13,7 @@ function createDailyCards(dailyWeatherData) {
   dailyCards.appendChild(dailyForecast);
 
   const dayAndForecast = document.createElement('div');
-  dayAndForecast.classList.add('.dayAndForecast');
+  dayAndForecast.classList.add('dayAndForecast');
   dailyForecast.appendChild(dayAndForecast);
 
   const daySpan = document.createElement('span');
@@ -38,11 +38,11 @@ function createDailyCards(dailyWeatherData) {
   iconAndTemperature.appendChild(highAndLowTemp);
 
   const highTempSpan = document.createElement('span');
-  highTempSpan.textContent = `${dailyWeatherData.temp.max}`;
+  highTempSpan.textContent = `${Math.round(dailyWeatherData.temp.max)}°`;
   highAndLowTemp.appendChild(highTempSpan);
 
   const lowTempSpan = document.createElement('span');
-  lowTempSpan.textContent = `${dailyWeatherData.temp.min}`;
+  lowTempSpan.textContent = `${Math.round(dailyWeatherData.temp.min)}°`;
   highAndLowTemp.appendChild(lowTempSpan);
 
   const dailyDetails = document.createElement('ul');
@@ -106,13 +106,15 @@ function createDailyCards(dailyWeatherData) {
   dailyDetails.appendChild(sunriseSunsetDiv);
 
   const sunriseSunsetTitle = document.createElement('span');
-  sunriseSunsetTitle.textContent = 'Sunrise / Sunset';
+  sunriseSunsetTitle.textContent = 'Sunrise/Sunset';
   sunriseSunsetDiv.appendChild(sunriseSunsetTitle);
 
   const sunriseSunset = document.createElement('span');
-  sunriseSunset.textContent = `${
-    convertUnixTime(dailyWeatherData.sunrise).convertToHours()
-  } / ${convertUnixTime(dailyWeatherData.sunset).convertToHours()}`;
+  sunriseSunset.textContent = `${convertUnixTime(
+    dailyWeatherData.sunrise,
+  ).convertToHours()}/${convertUnixTime(
+    dailyWeatherData.sunset,
+  ).convertToHours()}`;
   sunriseSunsetDiv.appendChild(sunriseSunset);
 }
 
