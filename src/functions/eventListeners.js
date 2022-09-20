@@ -7,6 +7,7 @@ import {
 import deleteItemsInDiv from './utility/deleteItemsInDiv';
 import createHourlyCards from './createHourlyCards';
 import createDailyCards from './createDailyCards';
+import changeBackgroundWeather from './weatherBackgroundChange';
 
 const searchBar = document.querySelector('#searchBar');
 const searchButton = document.querySelector('.searchButton');
@@ -29,6 +30,7 @@ searchButton.addEventListener('click', () => {
     for (let i = 1; i < 8; i += 1) {
       createDailyCards(currentWeatherData.daily[i]);
     }
+    changeBackgroundWeather(currentWeatherData);
   });
   searchBar.value = '';
 });

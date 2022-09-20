@@ -2,6 +2,8 @@ import convertUnixTime from './utility/convertUnixTime';
 
 const d2d = require('degrees-to-direction');
 
+const tempCheckbox = document.querySelector('#tempCheckbox');
+
 function createDailyCards(dailyWeatherData) {
   const dailyTemperatureDiv = document.querySelector('.dailyTemperatureDiv');
   const dailyCards = document.createElement('div');
@@ -74,11 +76,12 @@ function createDailyCards(dailyWeatherData) {
   windDiv.appendChild(windTitle);
 
   const windPercentage = document.createElement('span');
+  const unitType = tempCheckbox.checked ? 'm/h' : 'km/h';
   // Sets the wind speed dependent of the metric system selected
   // And uses the degrees to direction library to display the direction of the wind
-  windPercentage.textContent = `${dailyWeatherData.wind_speed} km/h ${d2d(
-    dailyWeatherData.wind_deg,
-  )}`;
+  windPercentage.textContent = `${
+    dailyWeatherData.wind_speed
+  } ${unitType} ${d2d(dailyWeatherData.wind_deg)}`;
   windDiv.appendChild(windPercentage);
 
   const humidityDiv = document.createElement('li');
