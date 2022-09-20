@@ -30,6 +30,7 @@ function createDailyCards(dailyWeatherData) {
 
   const weatherIcon = document.createElement('img');
   weatherIcon.classList.add('weatherIcon');
+  // Sets the source of the icon to the icons from the openweather api icons
   weatherIcon.src = `https://openweathermap.org/img/wn/${dailyWeatherData.weather[0].icon}@2x.png`;
   iconAndTemperature.appendChild(weatherIcon);
 
@@ -58,6 +59,7 @@ function createDailyCards(dailyWeatherData) {
   precipitationDiv.appendChild(precipitationTitle);
 
   const precipitationPercentage = document.createElement('span');
+  // Rounding the percipitation number and multiplying by 100  to make it a percentage
   precipitationPercentage.textContent = `${Math.floor(
     dailyWeatherData.pop * 100,
   )}%`;
@@ -72,6 +74,8 @@ function createDailyCards(dailyWeatherData) {
   windDiv.appendChild(windTitle);
 
   const windPercentage = document.createElement('span');
+  // Sets the wind speed dependent of the metric system selected
+  // And uses the degrees to direction library to display the direction of the wind
   windPercentage.textContent = `${dailyWeatherData.wind_speed} km/h ${d2d(
     dailyWeatherData.wind_deg,
   )}`;

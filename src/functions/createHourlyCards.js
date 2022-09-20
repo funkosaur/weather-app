@@ -13,6 +13,7 @@ function createHourlyCards(hourlyWeatherData) {
 
   const hourlyIcon = document.createElement('img');
   hourlyIcon.classList.add('hourlyIcon');
+  // Sets the source of the icon to the icons from the openweather api icons
   hourlyIcon.src = `https://openweathermap.org/img/wn/${hourlyWeatherData.weather[0].icon}@2x.png`;
   hourlyCards.appendChild(hourlyIcon);
 
@@ -25,6 +26,7 @@ function createHourlyCards(hourlyWeatherData) {
   hourlyPercip.appendChild(hourlyPercipSpan);
 
   const hourlyPercipSpanPercent = document.createElement('span');
+  // Rounding the percipitation number and multiplying by 100  to make it a percentage
   hourlyPercipSpanPercent.textContent = `${Math.floor(
     hourlyWeatherData.pop * 100,
   )}%`;
@@ -32,6 +34,7 @@ function createHourlyCards(hourlyWeatherData) {
 
   const hourlyHour = document.createElement('div');
   hourlyHour.classList.add('hourlyHour');
+  // converts the unix time to regular time and returns just the hours
   hourlyHour.textContent = convertUnixTime(
     hourlyWeatherData.dt,
   ).convertToHours();

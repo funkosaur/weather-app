@@ -1,3 +1,5 @@
+import capitalizeEachLetterInWord from './utility/capitalizeEachLetterInWord';
+
 function changeCityTemperature(weatherData) {
   const mainTemperature = document.querySelector('.currentTemperature');
   const highTemperature = document.querySelector('#highTemp');
@@ -23,18 +25,11 @@ function changeCityName(weatherData) {
   cityName.textContent = `${weatherData.name}, ${weatherData.country}`;
 }
 
-function capitalizeEachWordLetter(wordString) {
-  return wordString
-    .split(' ')
-    .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
-    .join(' ');
-}
-
 function changeWeatherIcon(weatherData) {
   const weatherIcon = document.querySelector('.weatherIcon');
   const weatherExplanation = document.querySelector('.weatherExplanation');
   weatherIcon.src = `https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`;
-  const capitalizedWeatherExplanation = capitalizeEachWordLetter(
+  const capitalizedWeatherExplanation = capitalizeEachLetterInWord(
     weatherData.current.weather[0].description,
   );
   weatherExplanation.textContent = capitalizedWeatherExplanation;
