@@ -60,7 +60,7 @@ body {
   grid-row: 1/2;
   display: grid;
   grid-template-columns: 0.3fr minmax(auto, 80em) 0.3fr;
-  height: 75vh;
+  height: 73vh;
 }
 
 .header {
@@ -76,10 +76,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
     #searchBar {
       width: 80%;
-      height: 40%;
+      height: 40px;
       border: none;
       outline: none;
       font-size: 16px;
@@ -88,7 +89,7 @@ body {
       border-top-left-radius: 4px;
     }
     .buttonDiv {
-      height: 40%;
+      height: 40px;
       width: 10%;
       .searchButton {
         width: 100%;
@@ -101,6 +102,16 @@ body {
         font-family: Roboto;
         font-size: 15px;
       }
+    }
+    .searchBarError {
+      border: 5px solid red;
+    }
+    .errorMessage {
+      position: absolute;
+      bottom: 0;
+      color: red;
+      display: none;
+      text-align: center;
     }
   }
 
@@ -130,6 +141,7 @@ body {
         justify-content: space-around;
         width: 100%;
         height: 15%;
+        text-align: center;
         #highTemp {
           @include flexCenter();
         }
@@ -353,7 +365,7 @@ body {
         .dayAndForecast {
           @include flexCenter();
           flex-direction: column;
-          align-items:flex-start;
+          align-items: flex-start;
           width: 100%;
         }
         .weatherIcon {
@@ -376,11 +388,92 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .precipitationDiv, .windDiv, .humidityDiv, .uvIndexDiv, .sunriseSunset {
+        .precipitationDiv,
+        .windDiv,
+        .humidityDiv,
+        .uvIndexDiv,
+        .sunriseSunset {
           @include flexCenter();
           justify-content: space-between;
         }
       }
+    }
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    bottom: 50;
+  }
+  100% {
+    opacity: 0.5;
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 1036px) {
+  .headerDiv {
+    height: 90vh;
+  }
+  .header {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.4fr 0.5fr 0.8fr 0.8fr;
+
+    .searchBarContainer {
+      grid-column: 1/3;
+
+      .errorMessage {
+        font-size: 14px;
+      }
+    }
+
+    .currentLocation {
+      grid-column: 1/3;
+    }
+
+    .currentTemperatureDiv {
+      grid-row: 3/4;
+      grid-column: 1/2;
+      .currentTemperatureDiv2 {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+    .currentWeather {
+      grid-row: 3/4;
+      grid-column: 2/3;
+    }
+    .currentHourlyWeather {
+      grid-row: 4/5;
+    }
+  }
+}
+
+@media only screen and (max-width: 570px) {
+
+  #searchBar {
+    width: 70% !important;
+    height: 30px !important;
+  }
+
+  .buttonDiv {
+    width: 20% !important;
+    height: 30px !important;
+  }
+  .currentTemperatureDiv2 {
+    .highAndLow {
+      font-size: 14px;
+    }
+    .currentTemperature {
+      font-size: 60px !important;
+    }
+    .feelsLikeDiv {
+      font-size: 14px;
     }
   }
 }

@@ -13,7 +13,7 @@
   <body>
     <div class="headerDiv">
       <div class="header">
-        <div class="searchBarContainer">
+        <form class="searchBarContainer">
           <input
             type="search"
             id="searchBar"
@@ -22,7 +22,9 @@
           <div class="buttonDiv">
             <button class="searchButton">Search</button>
           </div>
-        </div>
+          <div class="errorMessage">Location not found.
+            Search must be in the form of "City" or "City, Country Code".</div>
+        </form>
         <div class="currentTemperatureDiv">
           <div class="currentTemperatureDiv2">
             <div class="highAndLow">
@@ -35,7 +37,7 @@
         </div>
         <div class="currentLocation">
           <div class="locationContainer">
-            <div id="cityName">London, UK</div>
+            <div id="cityName">London, GB</div>
             <div class="switchContainer">
               <div id="Celsius">°C</div>
               <label class="switch">

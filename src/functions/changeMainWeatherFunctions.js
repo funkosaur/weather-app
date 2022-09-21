@@ -6,8 +6,6 @@ function changeCityTemperature(weatherData) {
   const lowTemperature = document.querySelector('#lowTemp');
   const feelsLikeTemperature = document.querySelector('.feelsLikeDiv');
 
-  console.log(weatherData);
-
   mainTemperature.textContent = `${Math.floor(weatherData.current.temp)}°`;
   highTemperature.textContent = `High: ${Math.floor(
     weatherData.daily[0].temp.max,
