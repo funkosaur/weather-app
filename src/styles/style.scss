@@ -342,7 +342,6 @@ body {
     border-bottom: 2px solid black;
   }
   .dailyTemperatureDiv {
-    height: 90%;
     background-color: black;
     display: flex;
     flex-wrap: wrap;
@@ -456,6 +455,16 @@ body {
 
 @media only screen and (max-width: 570px) {
 
+  body {
+    position: relative;
+    display: grid;
+    grid-template-rows: 90vh 0.5fr;
+  }
+
+  .headerDiv {
+    grid-row: 1/2;
+    position: fixed;
+  }
   #searchBar {
     width: 70% !important;
     height: 30px !important;
@@ -475,5 +484,10 @@ body {
     .feelsLikeDiv {
       font-size: 14px;
     }
+  }
+  .footer {
+    grid-row: 2/3;
+    z-index: 10;
+    position: relative;
   }
 }
