@@ -32,7 +32,7 @@
 
 ### Links
 
-> View the project [here](https://funkosaur.github.io/Funtasktick/)
+> View the project [here](https://funkosaur.github.io/weather-app/)
 
 ## My process
 
