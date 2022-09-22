@@ -26,7 +26,9 @@ function changeCityName(weatherData) {
 function changeWeatherIcon(weatherData) {
   const weatherIcon = document.querySelector('.weatherIcon');
   const weatherExplanation = document.querySelector('.weatherExplanation');
+  // Changes the icon with the ones provided by openweather
   weatherIcon.src = `https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`;
+  // Capitalizes the letters in the given word
   const capitalizedWeatherExplanation = capitalizeEachLetterInWord(
     weatherData.current.weather[0].description,
   );

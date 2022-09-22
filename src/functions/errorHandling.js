@@ -6,7 +6,6 @@ function errorHandler() {
   searchBar.style.outline = '2px solid red';
   searchButton.style.outline = '2px solid red';
   errorMessage.style.display = 'block';
-  errorMessage.classList.add('fadeIn');
 }
 
 function noError() {

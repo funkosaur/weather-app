@@ -18,6 +18,8 @@ const temperatureSwitch = document.querySelector('.slider');
 const cityName = document.querySelector('#cityName');
 
 function renderWeather(cityValue) {
+  // Gets the weather to the given location and renders the whole webpage with that information.
+  // Calls all the functions throughout the files to render everything and handle errors
   getWeatherForLocation(cityValue)
     .then((currentWeatherData) => {
       changeBackgroundWeather(currentWeatherData);
@@ -40,6 +42,7 @@ function renderWeather(cityValue) {
 }
 
 searchButton.addEventListener('click', (e) => {
+  // Renders the weather from the location in the search bar
   e.preventDefault();
   if (searchBar.value === '') {
     return;
@@ -48,6 +51,7 @@ searchButton.addEventListener('click', (e) => {
   searchBar.value = '';
 });
 temperatureSwitch.addEventListener('click', () => {
+  // Renders the weather from the previously searched location
   renderWeather(cityName.textContent);
 });
 

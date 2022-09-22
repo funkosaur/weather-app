@@ -15,6 +15,7 @@ import thunderstormd from '../assets/images/thunderstorm-day.jpg';
 import thunderstormn from '../assets/images/thunderstorm-night.jpg';
 
 function chooseBackground(weatherData) {
+  // Gets the background corresponding to the current weather through the weather icon
   switch (weatherData.current.weather[0].icon) {
     case '01d':
       return clearskyd;
