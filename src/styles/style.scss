@@ -15,13 +15,17 @@
   src: url('../assets/fonts/Roboto-Black.woff') format('woff');
 }
 
-$Gray: rgb(63, 63, 63);
-$lightGray: rgb(139, 139, 139);
+$Gray: rgb(48, 47, 47, 1);
+$lightGray: rgb(255, 255, 255, 0.15);
 
 @mixin flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin fadeInText{
+  animation: fadeInText 1s;
 }
 
 @mixin scrollBar {
@@ -53,6 +57,7 @@ body {
   overflow-y: scroll;
   scrollbar-gutter: auto;
   @include scrollBar();
+  background-color: $lightGray;
 }
 
 .headerDiv {
@@ -61,6 +66,7 @@ body {
   display: grid;
   grid-template-columns: 0.3fr minmax(auto, 80em) 0.3fr;
   height: 73vh;
+  @include fadeInText();
 }
 
 .header {
@@ -132,7 +138,7 @@ body {
       height: 80%;
       width: 70%;
       border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: $lightGray;
       backdrop-filter: blur(8px);
       color: white;
       font-size: 16px;
@@ -175,7 +181,7 @@ body {
 
     .locationContainer {
       @include flexCenter();
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: $lightGray;
       backdrop-filter: blur(8px);
       color: white;
       border-radius: 8px;
@@ -219,7 +225,7 @@ body {
           left: 0;
           right: 0;
           bottom: 0;
-          background-color: rgba(48, 47, 47, 1);
+          background-color: $Gray;
           -webkit-transition: 0.4s;
           transition: 0.4s;
         }
@@ -269,7 +275,7 @@ body {
       height: 80%;
       width: 70%;
       border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: $lightGray;
       backdrop-filter: blur(8px);
       color: white;
       .weatherIconDiv {
@@ -310,10 +316,13 @@ body {
       margin-left: 15px;
       margin-right: 15px;
       font-size: 16px;
-      background-color: rgba(48, 47, 47, 1);
+      background-color: $Gray;
       margin-top: 10px;
       border-radius: 8px;
       color: white;
+      .hourlyTemp {
+        @include fadeInText();
+      }
       .hourlyIcon {
         width: 60px;
         height: 60px;
@@ -327,6 +336,11 @@ body {
       }
     }
   }
+}
+
+@keyframes fadeInText {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .footer {
@@ -378,6 +392,7 @@ body {
         .highAndLowTemp {
           @include flexCenter();
           flex-direction: column;
+          @include fadeInText();
         }
       }
       .dailyDetails {
@@ -395,6 +410,11 @@ body {
         .sunriseSunset {
           @include flexCenter();
           justify-content: space-between;
+        }
+        .windDiv{
+          .windPercentage {
+            @include fadeInText();
+          }
         }
       }
     }

@@ -76,6 +76,7 @@ function createDailyCards(dailyWeatherData) {
   windDiv.appendChild(windTitle);
 
   const windPercentage = document.createElement('span');
+  windPercentage.classList.add('windPercentage');
   const unitType = tempCheckbox.checked ? 'm/h' : 'km/h';
   // Sets the wind speed dependent of the metric system selected
   // And uses the degrees to direction library to display the direction of the wind
