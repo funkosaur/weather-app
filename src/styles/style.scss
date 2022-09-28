@@ -428,7 +428,7 @@ body {
   }
   100% {
     opacity: 0.5;
-    top: 4.7rem;
+    top: 0rem;
   }
 }
 
@@ -445,7 +445,8 @@ body {
 
       .errorMessage {
         font-size: 14px;
-        top: 6rem;
+        top: 0.2rem;
+        animation: none;
       }
     }
 
@@ -482,28 +483,19 @@ body {
       }
     }
   }
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      top: 8rem;
-    }
-    100% {
-      opacity: 0.5;
-      top: 6rem;
-    }
-  }
 }
 
 @media only screen and (max-width: 570px) {
   body {
     position: relative;
     display: grid;
-    grid-template-rows: 90vh 0.5fr;
+    grid-template-rows: 90vh 10vh;
   }
 
   .headerDiv {
     grid-row: 1/2;
     position: fixed;
+    min-height: 90vh;
   }
   #searchBar {
     width: 70% !important;
@@ -529,5 +521,6 @@ body {
     grid-row: 2/3;
     z-index: 10;
     position: relative;
+    height: 100%;
   }
 }
